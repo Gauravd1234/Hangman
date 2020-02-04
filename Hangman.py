@@ -1,6 +1,6 @@
 import random
 
-f = open("words", "r")
+f = open("words.txt", "r")
 contents = f.read()
 contents = contents.split("\n")
 f.close()
