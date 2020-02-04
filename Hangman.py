@@ -1,6 +1,6 @@
 import random
 
-f = open("words.txt", "r")
+f = open("words", "r")
 contents = f.read()
 contents = contents.split("\n")
 f.close()
@@ -27,23 +27,24 @@ def print_spaces():
 
 print("If you think you know what the word is, type 'guess'")        
 while True:
-    if guesses < 1:
-        print("Word: ", word)
-        print("\n")
-        print("You lose!")
-        break
     
     if "_ " not in word_spaces:
         print("Word: ", word)
         print("\n")
         print("You win!")
         break
+      
+    if guesses < 1:
+        print("Word: ", word)
+        print("\n")
+        print("You lose!")
+        break
     
     
     print_spaces()
     print("\n")
     print("Words guessed: ", word_tracker)
-    print("Guesses left: ", guesses)
+    print("GUESSES LEFT: ", guesses)
     char_guess = input("Enter a letter: ")
     
 
@@ -58,6 +59,7 @@ while True:
             print("\n")
             print("You win!")
             break
+        else:
             print("Word: ", word)
             print("\n")
             print("You lose!")
@@ -80,6 +82,7 @@ while True:
             if word[count] == char_guess.lower():            
                 word_spaces[count] = char_guess.lower()
             count += 1
+
     else:
         print("->",'"{}"'.format(char_guess.upper()), "is not in the word")
         
@@ -90,5 +93,4 @@ while True:
 
 
         
-
     
